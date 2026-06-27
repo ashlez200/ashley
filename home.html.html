@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:1;}
+}
+
+.card{
+position:relative;
+width:90%;
+max-width:700px;
+padding:40px;
+text-align:center;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:25px;
+box-shadow:0 0 30px rgba(255,255,255,.2);
+animation:glow 3s infinite alternate;
+z-index:2;
+}
+
+@keyframes glow{
+from{
+box-shadow:0 0 20px rgba(255,255,255,.15);
+}
+to{
+box-shadow:0 0 50px rgba(255,105,180,.5);
+}
+}
+
+h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:18px;
+margin-bottom:25px;
+opacity:.9;
+}
+
+.clock{
+font-size:18px;
+margin-bottom:30px;
+color:#ffd369;
+}
+
+button{
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:40px;
+background:#ff4d88;
+color:white;
+cursor:pointer;
+transition:.4s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#ff2d6f;
+}
+
+.letter{
+margin-top:30px;
+display:none;
+line-height:1.9;
+font-size:18px;
+animation:fade 1s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.heart{
+font-size:50px;
+animation:beat 1s infinite;
+margin-top:20px;
+}
+
+@keyframes beat{
+50%{
+transform:scale(1.2);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="card">
+
+<h1>🎂 Happy Birthday</h1>
+
+<p class="subtitle">
+Today belongs to someone truly amazing.
+</p>
+
+<div class="clock" id="clock"></div>
+
+<button onclick="openLetter()">
+Open My Birthday Letter 💌
+</button>
+
+<div class="letter" id="letter">
+
+Every birthday marks another beautiful chapter in your story.
+
+I hope this year fills your life with laughter, peace, success, unforgettable adventures, and countless blessings.
+
+May every wish hidden inside your heart slowly become your reality.
+
+Always remember how valuable, loved, and appreciated you are.
+
+Thank you for being such an incredible person.
+
+I pray that happiness finds you every single day and that your brightest days are still ahead.
+
+Smile, celebrate, make beautiful memories, and enjoy every second of today because you deserve nothing less.
+
+Happy Birthday once again.
+
+May God continue to bless you abundantly. ❤️
+
+<div class="heart">❤️</div>
+
+</div>
+
+</div>
+
+<script>
+
+// Digital Clock
+function updateClock(){
+const now=new Date();
+
+document.getElementById("clock").innerHTML=
+now.toLocaleTimeString();
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+// Open Letter
+function openLetter(){
+document.getElementById("letter").style.display="block";
+}
+
+// Stars
+const stars=document.querySelector(".stars");
+
+for(let i=0;i<180;i++){
+
+const star=document.createElement("div");
+
+star.classList.add("star");
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+star.style.animationDelay=Math.random()*2+"s";
+
+star.style.opacity=Math.random();
+
+stars.appendChild(star);
+
+}
+
+</script>
+
+</body>
+</html>
